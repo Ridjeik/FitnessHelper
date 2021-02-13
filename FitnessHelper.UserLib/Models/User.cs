@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FitnessHelper.UserLib
+namespace FitnessHelper.UserLib.Models
 {
     public class User
     {
