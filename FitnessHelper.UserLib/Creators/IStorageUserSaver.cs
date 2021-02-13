@@ -4,7 +4,7 @@ namespace FitnessHelper.UserLib.Creators
 {
     public interface IStorageUserSaver
     {
-        IUsersStorage UsersStorage { get; }
+        IUsersStorage UsersStorage { get; set;  }
 
         void SaveUser(User user);
     }
