@@ -8,16 +8,37 @@ using System.Threading.Tasks;
 
 namespace FitnessHelper.UserLib.Creators.Realizations
 {
-    class UserCreator : IUserCreator
+    public class UserCreator : IUserCreator
     {
-        public IStorageManipulator StorageManipulator { get; }
-        public INewUserDataGetter NewDataGetter { get; }
+        private IStorageManipulator storageManipulator;
+        private INewUserDataGetter newDataGetter;
 
-        //TODO: Add checking into properties.
+        public IStorageManipulator StorageManipulator
+        {
+            get
+            {
+                return storageManipulator;
+            }
+            init
+            {
+                storageManipulator = value ?? throw new ArgumentNullException(nameof(value));
+            }
+        }
+        public INewUserDataGetter NewDataGetter
+        {
+            get
+            {
+                return newDataGetter;
+            }
+            init
+            {
+                newDataGetter = value ?? throw new ArgumentNullException(nameof(value));
+            }
+        }
 
         public User CreateUser(string userName)
         {
-            if(StorageManipulator.LoadUser(userName) is User user)
+            if (StorageManipulator.LoadUser(userName) is User user)
             {
                 return user;
             }
@@ -35,8 +56,8 @@ namespace FitnessHelper.UserLib.Creators.Realizations
 
         public UserCreator(IStorageManipulator storageManipulator, INewUserDataGetter newDataGetter)
         {
-            StorageManipulator = storageManipulator ?? throw new ArgumentNullException(nameof(storageManipulator));
-            NewDataGetter = newDataGetter ?? throw new ArgumentNullException(nameof(newDataGetter));
+            StorageManipulator = storageManipulator;
+            NewDataGetter = newDataGetter;
         }
     }
 }

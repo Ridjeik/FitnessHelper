@@ -39,7 +39,7 @@ namespace FitnessHelper.UserLib.Models
         {
             get
             {
-                return BirthDate;
+                return birthDate;
             }
             init
             {

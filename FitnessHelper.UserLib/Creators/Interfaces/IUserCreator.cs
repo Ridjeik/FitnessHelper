@@ -5,7 +5,7 @@ namespace FitnessHelper.UserLib.Creators.Interfaces
     {
         User CreateUser(string userName);
 
-        IStorageManipulator StorageManipulator { get; }
-        INewUserDataGetter NewDataGetter { get; }
+        IStorageManipulator StorageManipulator { get; init; }
+        INewUserDataGetter NewDataGetter { get; init; }
     }
 }
